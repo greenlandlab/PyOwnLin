@@ -1,13 +1,16 @@
 #include <iostream>
 #include <string.h>
 #include <sstream>
+#include <vector>
+
+// dynamically linked lib funcs
+void compiler_init( unsigned int argc, std::vector<std::string> argv[], std::string src_file_path, std::string output_file_path );
 
 
-
-std::string arg_array[50] = { "-out=ASM", "-o", "-Include", "-IncUnLib" , "-IncUnLibF", "-src", "-MultiInc"}; // all arguments
+std::string arg_array[50] = { "-out=ASM", "-o", "-Include", "-IncUnLib" , "-IncUnLibF", "-src", "-MultiInc", "-NoDebug"}; // all arguments
 std::string arg_s_array[3] = { "-src", "-Include", "-o" }; // args requiring parameters
 
-std::string out = "a.out"; // output file name by default a.out
+std::string out = ""; // output file name by default a.out
 std::string src; // The source file
 
 int arg_exists(std::string arg); // check if a argument exists
